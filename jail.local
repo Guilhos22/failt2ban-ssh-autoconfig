@@ -303,7 +303,6 @@ logpath  = %(auditd_log)s
 #
 
 [apache-auth]
-enabled = true
 port     = http,https
 logpath  = %(apache_error_log)s
 bantime = 2h
@@ -312,7 +311,7 @@ bantime = 2h
 [apache-badbots]
 # Ban hosts which agent identifies spammer robots crawling the web
 # for email addresses. The mail outputs are buffered.
-enabled = true
+#enabled = true
 port     = http,https
 logpath  = %(apache_access_log)s
 bantime  = 168h
@@ -320,7 +319,7 @@ maxretry = 1
 
 
 [apache-noscript]
-enabled = true
+#enabled = true
 port     = http,https
 logpath  = %(apache_error_log)s
 bantime = 168h
@@ -328,28 +327,28 @@ maxretry = 1
 ####
 
 [apache-overflows]
-enabled = true
+#enabled = true
 port     = http,https
 logpath  = %(apache_error_log)s
 maxretry = 2
 
 
 [apache-nohome]
-enabled = true
+#enabled = true
 port     = http,https
 logpath  = %(apache_error_log)s
 maxretry = 2
 
 
 [apache-botsearch]
-enabled = true
+#enabled = true
 port     = http,https
 logpath  = %(apache_error_log)s
 maxretry = 2
 
 
 [apache-fakegooglebot]
-enabled = true
+#enabled = true
 port     = http,https
 logpath  = %(apache_access_log)s
 maxretry = 1
@@ -357,14 +356,14 @@ ignorecommand = %(fail2ban_confpath)s/filter.d/ignorecommands/apache-fakegoogleb
 
 
 [apache-modsecurity]
-enabled = true
+#enabled = true
 port     = http,https
 logpath  = %(apache_error_log)s
 maxretry = 2
 
 
 [apache-shellshock]
-enabled = true
+#enabled = true
 port    = http,https
 logpath = %(apache_error_log)s
 maxretry = 1
@@ -381,6 +380,7 @@ logpath = /opt/openhab/logs/request.log
 # normal (default), aggressive (combines all), auth or fallback
 # See "tests/files/logs/nginx-http-auth" or "filter.d/nginx-http-auth.conf" for usage example and details.
 [nginx-http-auth]
+enabled = true
 # mode = normal
 port    = http,https
 logpath = %(nginx_error_log)s
@@ -390,15 +390,17 @@ logpath = %(nginx_error_log)s
 # http://nginx.org/en/docs/http/ngx_http_limit_req_module.html
 # or for example see in 'config/filter.d/nginx-limit-req.conf'
 [nginx-limit-req]
+enabled = true
 port    = http,https
 logpath = %(nginx_error_log)s
 
 [nginx-botsearch]
-
+enabled = true
 port     = http,https
 logpath  = %(nginx_error_log)s
 
 [nginx-bad-request]
+enabled = true
 port    = http,https
 logpath = %(nginx_access_log)s
 
